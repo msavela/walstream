@@ -1,0 +1,14 @@
+[package]
+name = "rust-client"
+version = "0.1.0"
+edition = "2024"
+
+[build-dependencies]
+tonic-prost-build = "0.14.2"
+
+[dependencies]
+prost = "0.14.1"
+tokio = { version = "1.48.0", features = ["full"] }
+tokio-stream = "0.1.17"
+tonic = "0.14.2"
+tonic-prost = "0.14.2"
