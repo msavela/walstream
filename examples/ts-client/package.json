@@ -1,0 +1,19 @@
+{
+  "name": "js-client",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "./compile_protobuf.sh && tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node index.ts"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "ts-proto": "^2.8.3",
+    "typescript": "^5.9.3"
+  }
+}
