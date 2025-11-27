@@ -1,4 +1,4 @@
-# walstream
+# walstream [![Build Status](https://github.com/msavela/walstream/actions/workflows/docker.yml/badge.svg)](https://github.com/msavela/walstream)
 
 `walstream` is a Change Data Capture (CDC) tool for PostgreSQL that captures changes from the Write-Ahead Log (WAL) and streams them over a gRPC connection.
 
