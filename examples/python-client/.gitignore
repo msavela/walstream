@@ -1,0 +1,4 @@
+.venv/
+__pycache__/
+plugin_pb2.py
+plugin_pb2_grpc.py
