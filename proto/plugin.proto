@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package plugin;
+
+// ---------------------------
+// Client → Server messages
+// ---------------------------
+
+message ClientAck {
+  uint64 pg_lsn = 1;
+}
+
+message ClientMessage {
+  oneof msg {
+    ClientAck ack = 1;
+  }
+}
+
+// ---------------------------
+// Server → Client messages
+// ---------------------------
+
+message InsertEvent {
+  uint64 pg_lsn = 1;
+  string schema = 2;
+  string table = 3;
+  string json_payload = 4;
+}
+
+message UpdateEvent {
+  uint64 pg_lsn = 1;
+  string schema = 2;
+  string table = 3;
+  string json_payload = 4;
+}
+
+message DeleteEvent {
+  uint64 pg_lsn = 1;
+  string schema = 2;
+  string table = 3;
+  string json_payload = 4;
+}
+
+message TruncateEvent {
+  uint64 pg_lsn = 1;
+  string schema = 2;
+  string table = 3;
+}
+
+message ServerMessage {
+  oneof msg {
+    InsertEvent insert = 1;
+    UpdateEvent update = 2;
+    DeleteEvent delete = 3;
+    TruncateEvent truncate = 4;
+  }
+}
+
+// ---------------------------
+// Plugin service
+// ---------------------------
+
+service PluginService {
+  rpc Session(stream ClientMessage) returns (stream ServerMessage);
+}
