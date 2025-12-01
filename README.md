@@ -32,7 +32,7 @@ To run `walstream`, you need a PostgreSQL database with the following:
 2.  **A replication publication**: You need to create a publication on the tables you want to monitor. To capture changes from all tables, you can run:
 
     ```sql
-    CREATE PUBLICATION my_publication FOR ALL TABLES;
+    CREATE PUBLICATION publication FOR ALL TABLES;
     ```
 
     The `docker-entrypoint-initdb.d/create-publication.sh` script in this repository creates a publication named `publication` when using the provided Docker Compose setup.
@@ -62,7 +62,7 @@ Then, you can run it with the following command. Make sure to replace the connec
 ```bash
 docker run -p 50051:50051 ghcr.io/msavela/walstream:latest \
   --connection "host=my_postgres_host user=my_user password=my_password dbname=my_db" \
-  start --publication my_publication --slot my_slot
+  start --publication publication --slot my_slot
 ```
 
 ## CLI Commands
